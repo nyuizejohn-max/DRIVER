@@ -44,10 +44,13 @@ android {
         // flag during build.
         versionCode = flutter.versionCode
         versionName = flutter.versionName
-        manifestPlaceholders["MAPS_API_KEY"] =
-            localProperties.getProperty("MAPS_API_KEY", "")
-        manifestPlaceholders["TRANSISTOR_LICENSE_KEY"] =
-    localProperties.getProperty("TRANSISTOR_LICENSE_KEY", "")
+       manifestPlaceholders["MAPS_API_KEY"] =
+    System.getenv("MAPS_API_KEY")
+        ?: localProperties.getProperty("MAPS_API_KEY", "")
+
+manifestPlaceholders["TRANSISTOR_LICENSE_KEY"] =
+    System.getenv("TRANSISTOR_LICENSE_KEY")
+        ?: localProperties.getProperty("TRANSISTOR_LICENSE_KEY", "")
     }
 
     buildTypes {
