@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "988690464584",
+    "firebase_url": "https://wheattaste-app-default-rtdb.firebaseio.com",
+    "project_id": "wheattaste-app",
+    "storage_bucket": "wheattaste-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988690464584:android:48bc3ed90e8faf65fafd7d",
+        "android_client_info": {
+          "package_name": "com.wheattaste"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDc7Ca5IJnrKsnXCP9IbmfW-YXuXMPU448"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988690464584:android:2e3c47cc75c76220fafd7d",
+        "android_client_info": {
+          "package_name": "com.wheattaste.driver_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDc7Ca5IJnrKsnXCP9IbmfW-YXuXMPU448"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

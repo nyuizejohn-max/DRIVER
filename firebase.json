@@ -1,0 +1,25 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "wheattaste-app",
+          "appId": "1:988690464584:android:2e3c47cc75c76220fafd7d",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "wheattaste-app",
+          "configurations": {
+            "android": "1:988690464584:android:2e3c47cc75c76220fafd7d",
+            "web": "1:988690464584:web:286402cb6810ac5cfafd7d"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules"
+  }
+}
