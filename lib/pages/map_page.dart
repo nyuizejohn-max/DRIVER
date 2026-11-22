@@ -208,7 +208,11 @@ String _nextInstruction = 'Continue straight';
       final response = await http
           .get(
             uri,
-            headers: {'Accept': 'application/json', 'Accept-Language': 'en'},
+            headers: {
+            'Accept': 'application/json',
+            'Accept-Language': 'en',
+            'User-Agent': 'WheattasteDriver/1.0',
+          },
           )
           .timeout(const Duration(seconds: 15));
 
