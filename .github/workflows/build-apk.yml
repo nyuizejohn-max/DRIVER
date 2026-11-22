@@ -30,18 +30,26 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Restore permanent signing keystore
+        run: |
+          echo "$DRIVER_KEYSTORE_BASE64" | base64 --decode > android/app/driver-debug.keystore
+        env:
+          DRIVER_KEYSTORE_BASE64: ${{ secrets.DRIVER_KEYSTORE_BASE64 }}
       - name: Build APK
         run: flutter build apk --debug
         env:
           MAPS_API_KEY: ${{ secrets.MAPS_API_KEY }}
+          DRIVER_KEYSTORE_PASSWORD: ${{ secrets.DRIVER_KEYSTORE_PASSWORD }}
 
-      - name: Show debug signing SHA-1
+      - name: Show permanent signing SHA-1
         run: |
           keytool -list -v \
-            -keystore "$HOME/.android/debug.keystore" \
-            -alias androiddebugkey \
-            -storepass android \
-            -keypass android | grep SHA1
+            -keystore android/app/driver-debug.keystore \
+            -alias driverdebug \
+            -storepass "$DRIVER_KEYSTORE_PASSWORD" \
+            -keypass "$DRIVER_KEYSTORE_PASSWORD" | grep SHA1
+        env:
+          DRIVER_KEYSTORE_PASSWORD: ${{ secrets.DRIVER_KEYSTORE_PASSWORD }}
 
       - name: Upload APK
         uses: actions/upload-artifact@v4

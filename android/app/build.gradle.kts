@@ -52,12 +52,24 @@ manifestPlaceholders["TRANSISTOR_LICENSE_KEY"] =
     System.getenv("TRANSISTOR_LICENSE_KEY")
         ?: localProperties.getProperty("TRANSISTOR_LICENSE_KEY", "")
     }
+        signingConfigs {
+        create("driverDebug") {
+            storeFile = file("driver-debug.keystore")
+            storePassword = System.getenv("DRIVER_KEYSTORE_PASSWORD")
+                ?: localProperties.getProperty("DRIVER_KEYSTORE_PASSWORD", "")
+            keyAlias = "driverdebug"
+            keyPassword = System.getenv("DRIVER_KEYSTORE_PASSWORD")
+                ?: localProperties.getProperty("DRIVER_KEYSTORE_PASSWORD", "")
+        }
+    }
 
-    buildTypes {
+        buildTypes {
+        debug {
+            signingConfig = signingConfigs.getByName("driverDebug")
+        }
+
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("driverDebug")
         }
     }
 }
